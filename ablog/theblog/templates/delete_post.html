@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title%}Ištrinti įrašą{{post.title_tag}}{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+    <h1>Ištrinti straipsnį</h1>
+    <br/><br/>
+    <h3>Ištrinti: {{ post.title }} </h3>
+
+    <br/>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            <strong>Ar tikrai norite ištrinti?</stron><br/><br/>
+            <button class="btn btn-secondary">Ištrinti</button>
+    </div>
+    {% else %}
+    Tu negali čia būti ir tu tai žinai (smile)
+    {% endif %}
+    
+{% else %}
+Tu negali čia būti ir tu tai žinai (smile)
+    
+{% endif %}
+
+{% endblock %}

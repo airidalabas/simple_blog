@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title%}Naujas įrašas{{post.title_tag}}{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>Pridėti straipsnį</h1>
+<br/><br/>
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Post</button>
+</div>
+
+<script>
+    var name = "{{ user.username }}";
+    document.getElementById("vardas").value = name;
+
+</script>
+
+{% else %}
+Tu negali čia būti ir tu tai žinai (smile)
+
+{% endif %}
+
+{% endblock %}
