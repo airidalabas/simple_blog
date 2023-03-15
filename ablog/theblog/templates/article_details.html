@@ -25,10 +25,13 @@ Back</a>
 <br/><br>
 <hr>
 <br/>
-<form action="{% url 'like_post' post.pk %}" 
-method="POST">
-    {% csrf_token%}
-    <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Wow</button> - {{ total_likes }} Wows
-</form>
+{% if user.is_authenticated %}
+    <form action="{% url 'like_post' post.pk %}" 
+    method="POST">
+        {% csrf_token%}
+        <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Wow</button> - {{ total_likes }} Wows
+    </form>
+{% endif%}
+<a href="{% url 'login' %}">Prisijunkite</a> norėdami išreikšti savo nuomonę - {{ total_likes }} Wows
 
 {% endblock %}
