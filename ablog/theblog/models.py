@@ -20,6 +20,7 @@ class Post(models.Model):
     body = RichTextField(blank=True, null=True)
     #body = models.TextField()
     post_date = models.DateField(auto_now_add=True)
+    footnote = RichTextField(blank=True, null=True, max_length=255)
     category = models.CharField(max_length=255, default="Puodelis po puodelio")
     likes = models.ManyToManyField(User, related_name='blog_posts')
 
