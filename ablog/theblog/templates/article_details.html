@@ -15,7 +15,12 @@
 </small><br/>
 <hr>
 <br/>
-{{ post.body }}
+{% if post.header_image %}
+    <img src = "{{ post.header_image.url }}" width=300 height=200>
+{% endif %}
+
+<br/><br/>
+{{ post.body|safe }}
 
 <br/><br>
 <a href="{% url 'home' %}" class="btn btn-secondary">
@@ -30,7 +35,32 @@ Back</a>
         {% csrf_token%}
         <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Wow</button> - {{ total_likes }} Wows
     </form>
+
+{% else %}
+    <a href="{% url 'login' %}">Prisijunkite</a> norėdami išreikšti savo nuomonę - {{ total_likes }} Wows
+
 {% endif%}
-<a href="{% url 'login' %}">Prisijunkite</a> norėdami išreikšti savo nuomonę - {{ total_likes }} Wows
+
+<br/><br>
+<div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-2">
+        <img src="{{ post.author.profile.prof_picture.url }}" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-10">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.author.first_name}} {{post.author.last_name}}</h5>
+          
+          <p class="card-text"><small class="text-muted">
+            <a href="{{ post.author.profile.website_url }}">Website</a> |
+            <a href="{{ post.author.profile.facebook_url }}">Facebook</a> | 
+            <a href="{{ post.author.profile.instagram_url }}">Instagram</a> |
+            <a href="{{ post.author.profile.linkedin_url }}">LinkedIn</a> |
+         
+            <p class="card-text">{{ post.author.profile.info }}"</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
