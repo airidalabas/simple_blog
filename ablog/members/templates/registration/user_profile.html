@@ -14,13 +14,16 @@
           <h5 class="card-title">{{ page_user.user.first_name}} {{page_user.user.last_name}}</h5>
           
           <p class="card-text"><small class="text-muted">
-            
+            {% if page_user.website_url %}
             <a href="{{ page_user.website_url }}">Website</a> |
-            <a href="{{ page_user.facebook_url }}">Facebook</a> | 
+            {% endif %}
+            {% if page_user.facebook_url %}
+            <a href="{{ page_user.facebook_url }}">Facebook</a> |
+            {% endif %}
+            {% if page_user.instagram_url %}
             <a href="{{ page_user.instagram_url }}">Instagram</a> |
-            <a href="{{ page_user.linkedin_url }}">LinkedIn</a> |
-         
-            <p class="card-text">{{ page_user.profile.info }}</p>
+            {% endif %}
+            <p class="card-text">{{ page_user.user.profile.info }}</p>
         </div>
       </div>
     </div>

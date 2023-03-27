@@ -24,6 +24,9 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user)
+    
+    def get_absolute_url(self):
+        return reverse("home")
 
 
 class Post(models.Model):
@@ -45,6 +48,6 @@ class Post(models.Model):
         return f"{self.title}, {self.author}"
     
     def get_absolute_url(self):
-        return reverse("article-details", args=(str(self.id)))
+        return reverse("article-details", args=(str(self.id),))
     
     
