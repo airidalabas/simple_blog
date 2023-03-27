@@ -52,6 +52,7 @@ Back</a>
           <h5 class="card-title">{{ post.author.first_name}} {{post.author.last_name}}</h5>
           
           <p class="card-text"><small class="text-muted">
+            <a href="{% url 'show_profile_page' post.author.profile.id %}">Profilis</a> |
             <a href="{{ post.author.profile.website_url }}">Website</a> |
             <a href="{{ post.author.profile.facebook_url }}">Facebook</a> | 
             <a href="{{ post.author.profile.instagram_url }}">Instagram</a> |
