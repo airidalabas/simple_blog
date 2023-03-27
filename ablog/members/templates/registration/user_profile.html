@@ -7,7 +7,7 @@
 <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-2">
-        <img src="{{ post.author.profile.prof_picture.url }}" class="img-fluid rounded-start">
+        <img src="{{ page_user.prof_picture.url }}" class="img-fluid rounded-start">
       </div>
       <div class="col-md-10">
         <div class="card-body">
@@ -16,9 +16,9 @@
           <p class="card-text"><small class="text-muted">
             
             <a href="{{ page_user.website_url }}">Website</a> |
-            <a href="{{ page_user.profile.facebook_url }}">Facebook</a> | 
-            <a href="{{ page_user.profile.instagram_url }}">Instagram</a> |
-            <a href="{{ page_user.profile.linkedin_url }}">LinkedIn</a> |
+            <a href="{{ page_user.facebook_url }}">Facebook</a> | 
+            <a href="{{ page_user.instagram_url }}">Instagram</a> |
+            <a href="{{ page_user.linkedin_url }}">LinkedIn</a> |
          
             <p class="card-text">{{ page_user.profile.info }}</p>
         </div>

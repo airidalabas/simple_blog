@@ -8,6 +8,13 @@ from .forms import SignUpForm, EditProfileForm, PasswordChangingForm
 from theblog.models import Profile
 
 
+class EditProfilePageView(generic.UpdateView):
+     model = Profile
+     template_name = 'registration/edit_profile_page.html'
+     fields = ['info', 'prof_picture', 'website_url', 'facebook_url', 'instagram_url', 'linkedin_url']
+     success_url = reverse_lazy('home')
+
+     
 class ShowProfilePageView(DetailView):
     model = Profile
     template_name = 'registration/user_profile.html'

@@ -32,7 +32,6 @@
                 </a>
                 <ul class="dropdown-menu">
               
-
                   {% for item in categories_menu %}
                   <a class="dropdown-item" href="{% url 'category' item %}"> 
                   {{ item }}</a>
@@ -53,9 +52,16 @@
                   Pridėti kategoriją</a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'edit_profile' %}">
-                  Koreguoti profilį</a>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profilis
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Vartotojo duomenys</a></li>
+                  <li><a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Koreguoti profilį</a></li>
+                  <li><a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Profilio puslapis</a></li>
+                </ul>
+              </div>
 
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">
