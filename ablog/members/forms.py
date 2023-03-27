@@ -37,6 +37,7 @@ class EditProfileForm(UserChangeForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'last_login', 'is_superuser', 'is_staff', 'is_active')
 
+#EditProfilePage
 
 class PasswordChangingForm(PasswordChangeForm):
     old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
