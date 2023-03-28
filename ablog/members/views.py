@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from .forms import SignUpForm, EditProfileForm, PasswordChangingForm, ProfilePageForm
 from theblog.models import Profile
 
+
 class CreateProfilePageView(CreateView):
      model = Profile
      form_class = ProfilePageForm
@@ -16,6 +17,7 @@ class CreateProfilePageView(CreateView):
      def form_valid(self, form):
           form.instance.user = self.request.user
           return super().form_valid(form)
+     
      
 class EditProfilePageView(generic.UpdateView):
      model = Profile

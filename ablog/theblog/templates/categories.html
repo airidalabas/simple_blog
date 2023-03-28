@@ -19,7 +19,7 @@
                 {% endif %}
             {% endif %}
         </small><br/>
-        {{post.body|slice:":200"}}</li>
+        {{post.footnote|safe}}</li>
     {% endfor %}
     </ul>
 
